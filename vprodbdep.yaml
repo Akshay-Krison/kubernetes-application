@@ -17,11 +17,11 @@ spec:
       containers:
       - name: vprodb
         image: vprofile/vprofiledb:V1
-        args:
-          - "--ignore-db-dir=lost+found"
-        volumeMounts:
-          - name: vpro-db-data
-            mountPath: /var/lib/mysql
+        # args:
+        #   - "--ignore-db-dir=lost+found"
+        # volumeMounts:
+        #   - name: vpro-db-data
+        #     mountPath: /var/lib/mysql
         resources:
           limits:
             memory: "128Mi"
@@ -37,8 +37,8 @@ spec:
                 key: db-pass
       nodeSelector:
         zone: ap-south-1a
-      volumes:
-        - name: vpro-db-data
-          awsElasticBlockStore:
-            volumeID: vol-0123c98d4b7bd5078
-            fsType: ext4
+      # volumes:
+      #   - name: vpro-db-data
+      #     awsElasticBlockStore:
+      #       volumeID: vol-0123c98d4b7bd5078
+      #       fsType: ext4
